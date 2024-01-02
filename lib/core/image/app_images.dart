@@ -9,6 +9,7 @@ class AppImages {
   AppImages._();
   
   static const String calculatorIcon = 'assets/images/calculator_icon.png';  
+  static const String calendarIcon = 'assets/images/calendar_icon.png';  
   static const String checkIcon = 'assets/images/check_icon.png';  
   static const String contuctIcon = 'assets/images/contuct_icon.png';  
   static const String groupIcon = 'assets/images/group_icon.png';  

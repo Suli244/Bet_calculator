@@ -34,6 +34,9 @@ dependencies:
   flutter_screenutil: ^5.9.0
   share_plus: ^7.2.1
   shared_preferences: ^2.0.15
+  table_calendar: ^3.0.9
+  intl: ^0.18.0
+  youtube_player_flutter: ^8.1.2
 
   
 

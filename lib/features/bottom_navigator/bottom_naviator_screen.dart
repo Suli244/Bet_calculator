@@ -1,5 +1,5 @@
 import 'package:bet_calculator/core/image/app_images.dart';
-import 'package:bet_calculator/features/four_page/four_page.dart';
+import 'package:bet_calculator/features/sports_highlights/sports_highlights_page.dart';
 import 'package:bet_calculator/features/one_page/one_page.dart';
 import 'package:bet_calculator/features/settings/settings_page.dart';
 import 'package:bet_calculator/features/trhee_page/trhee_page.dart';
@@ -111,6 +111,6 @@ List<Widget> pages = [
   const OnePage(),
   const TwoPage(),
   const TrheePage(),
-  const FourPage(),
+  const SportsHighlightsPage(),
   const SettingsPage(),
 ];

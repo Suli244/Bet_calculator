@@ -71,6 +71,11 @@ abstract class AppTextStylesBetCalculator {
         fontWeight: FontWeight.w500,
         color: color ?? Colors.black,
       );
+  static TextStyle s25W500({Color? color}) => TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w500,
+        color: color ?? Colors.black,
+      );
   static TextStyle s18Wbold({Color? color}) => TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold,
