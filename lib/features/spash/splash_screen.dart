@@ -1,5 +1,9 @@
 import 'package:bet_calculator/core/image/app_images.dart';
+import 'package:bet_calculator/core/premium/first_open.dart';
+import 'package:bet_calculator/core/premium/premium.dart';
+import 'package:bet_calculator/features/bottom_navigator/bottom_naviator_screen.dart';
 import 'package:bet_calculator/features/on_boarding/on_boarding_screen.dart';
+import 'package:bet_calculator/features/premium/premium_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -37,11 +41,29 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _tradeNotOpIqHome() async {
     await Future.delayed(const Duration(milliseconds: 1450));
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const OnBoardingScreen(),
-      ),
-    );
+    final isFirst = await FirstOpenBetCalculator.getFirstOpen();
+    final isPremium = await PremiumBetCalculator.getPremium();
+    if (!isFirst) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const OnBoardingScreen(),
+        ),
+      );
+    } else if (!isPremium) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const PremiumScreen(),
+        ),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const BottomNavigatorScreen(),
+        ),
+      );
+    }
   }
 }

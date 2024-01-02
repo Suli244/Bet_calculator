@@ -1,15 +1,13 @@
-
 import 'package:bet_calculator/theme/app_text_styles.dart';
 import 'package:bet_calculator/widgets/app_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({
+class CustomButtonBetCalculator extends StatelessWidget {
+  const CustomButtonBetCalculator({
     Key? key,
     this.width = double.infinity,
-    this.height = 56,
+    this.height = 60,
     this.padding = 14.0,
     required this.color,
     this.textColor = Colors.white,
@@ -66,7 +64,7 @@ class CustomButton extends StatelessWidget {
                   text!,
                   textAlign: TextAlign.center,
                   style: textStyle ??
-                      AppTextStyles.s17W600(
+                      AppTextStylesBetCalculator.s17W600(
                         color: isFullFilled ? textColor : Colors.amber,
                       ),
                 ),

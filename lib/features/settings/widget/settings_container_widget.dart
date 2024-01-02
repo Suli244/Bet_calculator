@@ -44,7 +44,7 @@ class SettingsContainerWidget extends StatelessWidget {
               const SizedBox(width: 15),
               Text(
                 text,
-                style: AppTextStyles.s16W500(),
+                style: AppTextStylesBetCalculator.s16W500(),
               ),
             ],
           ),

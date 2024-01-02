@@ -1,8 +1,9 @@
 import 'package:bet_calculator/core/image/app_images.dart';
-import 'package:flutter/material.dart';
 import 'package:bet_calculator/theme/app_colors.dart';
 import 'package:bet_calculator/theme/app_text_styles.dart';
 import 'package:bet_calculator/widgets/custom_button.dart';
+import 'package:bet_calculator/widgets/restore_widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PageViewItem extends StatelessWidget {
@@ -74,7 +75,8 @@ class PageViewItem extends StatelessWidget {
                   children: [
                     Text(
                       'Premium',
-                      style: AppTextStyles.s40W700(color: Colors.white),
+                      style: AppTextStylesBetCalculator.s40W700(
+                          color: Colors.white),
                     ),
                     const SizedBox(width: 15),
                     Image.asset(
@@ -89,7 +91,8 @@ class PageViewItem extends StatelessWidget {
                 left: 30,
                 child: Text(
                   title,
-                  style: AppTextStyles.s40W700(color: Colors.white),
+                  style:
+                      AppTextStylesBetCalculator.s40W700(color: Colors.white),
                 ),
               ),
         Positioned(
@@ -97,7 +100,7 @@ class PageViewItem extends StatelessWidget {
           left: 30,
           child: Text(
             titleTwo,
-            style: AppTextStyles.s24W600(color: Colors.white),
+            style: AppTextStylesBetCalculator.s24W600(color: Colors.white),
           ),
         ),
         isX
@@ -125,7 +128,8 @@ class PageViewItem extends StatelessWidget {
                           const SizedBox(width: 13),
                           Text(
                             'Unlimited use of the calculator',
-                            style: AppTextStyles.s18W500(color: Colors.black),
+                            style: AppTextStylesBetCalculator.s18W500(
+                                color: Colors.black),
                           ),
                         ],
                       ),
@@ -149,7 +153,8 @@ class PageViewItem extends StatelessWidget {
                           const SizedBox(width: 13),
                           Text(
                             'History of the calculator',
-                            style: AppTextStyles.s18W500(color: Colors.black),
+                            style: AppTextStylesBetCalculator.s18W500(
+                                color: Colors.black),
                           ),
                         ],
                       ),
@@ -173,7 +178,8 @@ class PageViewItem extends StatelessWidget {
                           const SizedBox(width: 13),
                           Text(
                             'Without advertising',
-                            style: AppTextStyles.s18W500(color: Colors.black),
+                            style: AppTextStylesBetCalculator.s18W500(
+                                color: Colors.black),
                           ),
                         ],
                       ),
@@ -187,14 +193,14 @@ class PageViewItem extends StatelessWidget {
             const Text(''),
             const SizedBox(height: 650),
             Center(
-              child: CustomButton(
+              child: CustomButtonBetCalculator(
                 height: 60,
                 width: 355,
                 color: AppColors.color144D87,
                 onPress: onPressNext ?? () {},
                 text: titleNext ?? 'Next',
-                textStyle:
-                    textStyleNext ?? AppTextStyles.s24W600(color: Colors.white),
+                textStyle: textStyleNext ??
+                    AppTextStylesBetCalculator.s24W600(color: Colors.white),
               ),
             ),
             const SizedBox(height: 37),
@@ -225,34 +231,10 @@ class PageViewItem extends StatelessWidget {
                     ),
                   ),
             const SizedBox(height: 30),
-            Row(
-              children: [
-                const SizedBox(width: 39),
-                InkWell(
-                  onTap: onPressTermOfService ?? () {},
-                  child: Text(
-                    'Term of Service',
-                    style: AppTextStyles.s15W400(color: Colors.white),
-                  ),
-                ),
-                const Spacer(),
-                InkWell(
-                  onTap: onPressRestore ?? () {},
-                  child: Text(
-                    'Restore',
-                    style: AppTextStyles.s15W400(color: Colors.white),
-                  ),
-                ),
-                const Spacer(),
-                InkWell(
-                  onTap: onPressPrivacyPolicy ?? () {},
-                  child: Text(
-                    'Privacy Policy',
-                    style: AppTextStyles.s15W400(color: Colors.white),
-                  ),
-                ),
-                const SizedBox(width: 39),
-              ],
+            RestoreButtons(
+              onPressTermOfService: () {},
+              onPressRestore: () {},
+              onPressPrivacyPolicy: () {},
             ),
           ],
         ),

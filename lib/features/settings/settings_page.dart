@@ -14,7 +14,7 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Settings',
-          style: AppTextStyles.s24W600(),
+          style: AppTextStylesBetCalculator.s24W600(),
         ),
       ),
       body: Padding(
