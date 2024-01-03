@@ -1,3 +1,4 @@
+import 'package:apphud/apphud.dart';
 import 'package:bet_calculator/core/image/app_images.dart';
 import 'package:bet_calculator/core/premium/premium.dart';
 import 'package:bet_calculator/features/bottom_navigator/bottom_naviator_screen.dart';
@@ -9,10 +10,17 @@ import 'package:bet_calculator/widgets/custom_button.dart';
 import 'package:bet_calculator/widgets/restore_widgets.dart';
 import 'package:flutter/material.dart';
 
-class PremiumScreen extends StatelessWidget {
+class PremiumScreen extends StatefulWidget {
   const PremiumScreen({super.key, this.isClose = false});
 
   final bool isClose;
+
+  @override
+  State<PremiumScreen> createState() => _PremiumScreenState();
+}
+
+class _PremiumScreenState extends State<PremiumScreen> {
+  bool owhevogerivgwecowcyw = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +39,7 @@ class PremiumScreen extends StatelessWidget {
             return SafeArea(
               child: InkWell(
                 onTap: () {
-                  if (isClose) {
+                  if (widget.isClose) {
                     Navigator.pop(context);
                   } else {
                     Navigator.pushAndRemoveUntil(
@@ -74,16 +82,35 @@ class PremiumScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 44),
                   CustomButtonBetCalculator(
+                    isLoading: owhevogerivgwecowcyw,
                     color: AppColors.color144D87,
                     onPress: () async {
-                      await PremiumBetCalculator.setPremium();
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const BottomNavigatorScreen(),
-                        ),
-                        (protected) => false,
+                      setState(() {
+                        owhevogerivgwecowcyw = true;
+                      });
+                      final apphudPaywalls = await Apphud.paywalls();
+
+                      await Apphud.purchase(
+                        product: apphudPaywalls?.paywalls.first.products?.first,
+                      ).whenComplete(
+                        () async {
+                          if (await Apphud.hasPremiumAccess() ||
+                              await Apphud.hasActiveSubscription()) {
+                            await PremiumBetCalculator.buyTradeFuncRestore(
+                                context);
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const BottomNavigatorScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          }
+                        },
                       );
+                      setState(() {
+                        owhevogerivgwecowcyw = false;
+                      });
                     },
                     text: 'Buy Premium for \$0,99',
                     textStyle:
@@ -92,7 +119,9 @@ class PremiumScreen extends StatelessWidget {
                   const SizedBox(height: 44),
                   RestoreButtons(
                     onPressTermOfService: () {},
-                    onPressRestore: () {},
+                    onPressRestore: () async {
+                      await PremiumBetCalculator.buyTradeFuncRestore(context);
+                    },
                     onPressPrivacyPolicy: () {},
                   ),
                 ],

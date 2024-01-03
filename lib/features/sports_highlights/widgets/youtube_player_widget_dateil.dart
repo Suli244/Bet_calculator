@@ -30,6 +30,7 @@ class _YoutubePlayeRState extends State<YoutubePlayeR> {
       initialVideoId: videoID!,
       flags: const YoutubePlayerFlags(
         autoPlay: false,
+        showLiveFullscreenButton: false,
       ),
     );
     return Stack(
@@ -41,9 +42,9 @@ class _YoutubePlayeRState extends State<YoutubePlayeR> {
             controller: controller,
           ),
         ),
-        //////// Container gradient
+        ////// Container gradient
         Positioned(
-          bottom: 0,
+          top: 0,
           left: 0,
           right: 0,
           child: Container(
@@ -54,8 +55,8 @@ class _YoutubePlayeRState extends State<YoutubePlayeR> {
                 begin: const Alignment(0.00, -1.00),
                 end: const Alignment(0, 1),
                 colors: [
-                  AppColors.color039AFF.withOpacity(0),
                   AppColors.color039AFF,
+                  AppColors.color039AFF.withOpacity(0),
                 ],
               ),
             ),
@@ -63,7 +64,7 @@ class _YoutubePlayeRState extends State<YoutubePlayeR> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(width: 15),
-                Center(
+                Expanded(
                   child: Text(
                     widget.title,
                     style: AppTextStylesBetCalculator.s20W600(

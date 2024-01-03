@@ -38,6 +38,15 @@ dependencies:
   table_calendar: ^3.0.9
   intl: ^0.18.0
   youtube_player_flutter: ^8.1.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  freezed_annotation: ^2.1.0
+  flutter_bloc: ^8.1.1
+  freezed: ^2.1.1
+  dropdown_button2: ^2.3.9
+  dio: ^5.4.0
+  lottie: ^2.7.0
+  apphud: ^2.2.6
 
   
 
@@ -58,6 +67,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  build_runner: ^2.2.0
+  hive_generator: ^1.1.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

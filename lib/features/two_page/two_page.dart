@@ -11,7 +11,7 @@ class TwoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const CustomAppBar(title: 'Calculator'),
+      appBar: const CustomAppBarBetCalculator(title: 'Calculator'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
