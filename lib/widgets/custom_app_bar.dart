@@ -26,7 +26,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: titleWidget ?? Text(title ?? ''),
-      titleTextStyle: titleTextStyle ?? AppTextStylesBetCalculator.s18W700(),
+      titleTextStyle: titleTextStyle ?? AppTextStylesBetCalculator.s24W600(),
+      backgroundColor: Colors.white,
       elevation: 0,
       centerTitle: centerTitle,
       iconTheme: IconThemeData(

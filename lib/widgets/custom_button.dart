@@ -13,7 +13,7 @@ class CustomButtonBetCalculator extends StatelessWidget {
     this.textColor = Colors.white,
     this.isNotFullColor,
     this.isFullFilled = true,
-    this.radius = 12.0,
+    this.radius = 15.0,
     this.isLoading = false,
     this.textStyle,
     this.text,

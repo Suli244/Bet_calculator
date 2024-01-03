@@ -46,10 +46,20 @@ abstract class AppTextStylesBetCalculator {
         fontSize: 15,
         fontWeight: FontWeight.w600,
       );
+  static TextStyle s15W500({Color? color}) => TextStyle(
+        color: color ?? Colors.black,
+        fontSize: 15,
+        fontWeight: FontWeight.w500,
+      );
   static TextStyle s16W400({Color? color, double? fontSize}) => TextStyle(
         color: color ?? Colors.black,
         fontSize: fontSize ?? 16,
         fontWeight: FontWeight.w400,
+      );
+  static TextStyle s16W600({Color? color, double? fontSize}) => TextStyle(
+        color: color ?? Colors.black,
+        fontSize: fontSize ?? 16,
+        fontWeight: FontWeight.w600,
       );
   static TextStyle s16W500({Color? color}) => TextStyle(
         color: color ?? Colors.black,
@@ -117,6 +127,11 @@ abstract class AppTextStylesBetCalculator {
         color: color ?? Colors.black,
         fontWeight: FontWeight.w600,
       );
+  static TextStyle s20W500({Color? color}) => TextStyle(
+        fontSize: 20,
+        color: color ?? Colors.black,
+        fontWeight: FontWeight.w500,
+      );
   static TextStyle s20Wbold({Color? color}) => TextStyle(
         fontSize: 20,
         color: color ?? Colors.black,
@@ -132,10 +147,20 @@ abstract class AppTextStylesBetCalculator {
         color: color ?? Colors.black,
         fontWeight: FontWeight.w900,
       );
+  static TextStyle s32W600({Color? color}) => TextStyle(
+        fontSize: 32,
+        color: color ?? Colors.black,
+        fontWeight: FontWeight.w600,
+      );
   static TextStyle s40W700({Color? color}) => TextStyle(
         fontSize: 40,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w700,
+      );
+  static TextStyle s48W600({Color? color}) => TextStyle(
+        fontSize: 48,
+        color: color ?? Colors.black,
+        fontWeight: FontWeight.w600,
       );
 
   static TextStyle s60W900({Color? color}) => TextStyle(
