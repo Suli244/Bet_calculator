@@ -5,6 +5,7 @@ import 'package:bet_calculator/features/bottom_navigator/bottom_naviator_screen.
 import 'package:bet_calculator/features/on_boarding/on_boarding_screen.dart';
 import 'package:bet_calculator/features/premium/premium_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:in_app_review/in_app_review.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -50,6 +51,16 @@ class _SplashScreenState extends State<SplashScreen> {
           builder: (context) => const OnBoardingScreen(),
         ),
       );
+      await Future.delayed(const Duration(seconds: 2));
+      try {
+        final InAppReview inAppReview = InAppReview.instance;
+
+        if (await inAppReview.isAvailable()) {
+          inAppReview.requestReview();
+        }
+      } catch (e) {
+        throw Exception(e);
+      }
     } else if (!isPremium) {
       Navigator.pushReplacement(
         context,
