@@ -6,4 +6,5 @@ abstract class AppColors {
   static const Color color000000 = Color(0xff000000);
   static Color color00000050 = const Color(0xff000000).withOpacity(0.50);
   static const Color colorAFAFAF = Color(0xffAFAFAF);
+  static const Color colorD9D9D9 = Color(0xffD9D9D9);
 }

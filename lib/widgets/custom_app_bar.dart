@@ -1,8 +1,8 @@
 import 'package:bet_calculator/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
+class CustomAppBarBetCalculator extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBarBetCalculator({
     this.title,
     this.icon,
     this.titleWidget,

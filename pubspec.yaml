@@ -35,6 +35,9 @@ dependencies:
   share_plus: ^7.2.1
   shared_preferences: ^2.0.15
   webview_flutter: ^4.4.2
+  table_calendar: ^3.0.9
+  intl: ^0.18.0
+  youtube_player_flutter: ^8.1.2
 
   
 
