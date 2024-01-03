@@ -24,7 +24,7 @@ class SystemCalculatorScreen extends StatelessWidget {
             ),
           ),
         ),
-        appBar: CustomAppBar(
+        appBar: CustomAppBarBetCalculator(
           title: 'System calculator',
           titleTextStyle: AppTextStylesBetCalculator.s20W600(),
           actions: [

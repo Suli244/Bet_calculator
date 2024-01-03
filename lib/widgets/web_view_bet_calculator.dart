@@ -29,7 +29,7 @@ class _WebFFBetCalculatorState extends State<WebFFBetCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: widget.title),
+      appBar: CustomAppBarBetCalculator(title: widget.title),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

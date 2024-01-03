@@ -34,7 +34,7 @@ class _ExpressCalculatorScreenState extends State<ExpressCalculatorScreen> {
             ),
           ),
         ),
-        appBar: CustomAppBar(
+        appBar: CustomAppBarBetCalculator(
           title: 'Express calculator',
           titleTextStyle: AppTextStylesBetCalculator.s20W600(),
           actions: [
