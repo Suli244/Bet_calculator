@@ -47,6 +47,7 @@ dependencies:
   dio: ^5.4.0
   lottie: ^2.7.0
   apphud: ^2.2.6
+  bloc: ^8.1.2
 
   
 

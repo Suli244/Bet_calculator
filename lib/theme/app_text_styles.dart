@@ -31,6 +31,11 @@ abstract class AppTextStylesBetCalculator {
         fontSize: 14,
         fontWeight: FontWeight.w500,
       );
+  static TextStyle s14W600({Color? color}) => TextStyle(
+        color: color ?? Colors.black,
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+      );
   static TextStyle s14Wbold({Color? color}) => TextStyle(
         color: color ?? Colors.black,
         fontSize: 14,
@@ -51,11 +56,16 @@ abstract class AppTextStylesBetCalculator {
         fontSize: 15,
         fontWeight: FontWeight.w500,
       );
-  static TextStyle s16W400({Color? color, double? fontSize}) => TextStyle(
-        color: color ?? Colors.black,
-        fontSize: fontSize ?? 16,
-        fontWeight: FontWeight.w400,
-      );
+  static TextStyle s16W400({
+    Color? color,
+    double? fontSize,
+    double? height,
+  }) =>
+      TextStyle(
+          color: color ?? Colors.black,
+          fontSize: fontSize ?? 16,
+          fontWeight: FontWeight.w400,
+          height: height);
   static TextStyle s16W600({Color? color, double? fontSize}) => TextStyle(
         color: color ?? Colors.black,
         fontSize: fontSize ?? 16,
