@@ -8,6 +8,7 @@ import 'package:bet_calculator/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 
 class SportsHighlightsPage extends StatefulWidget {
   const SportsHighlightsPage({super.key});
@@ -30,75 +31,75 @@ class _SportsHighlightsPageState extends State<SportsHighlightsPage> {
           title: 'Sports highlights',
           titleTextStyle: AppTextStylesBetCalculator.s24W600(),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Choose the date',
-                style: AppTextStylesBetCalculator.s16W500(),
-              ),
-              const SizedBox(height: 5),
-              InkWell(
-                borderRadius: BorderRadius.circular(10),
-                onTap: () async {
-                  final dateFrom = await showDateDialog(context, toDay);
-
-                  setState(() {
-                    toDay = dateFrom;
-                  });
-                  context.read<GetVideoCubit>().getVideo(
-                        DateFormat('yyyy-MM-dd').format(toDay),
-                        selectedValue,
-                      );
-                },
-                child: Container(
-                  height: 50,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Color(0x26000000),
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      const SizedBox(width: 15),
-                      Text(
-                        DateFormat('dd/MM/yyyy').format(toDay),
-                        style: AppTextStylesBetCalculator.s16W500(),
-                      ),
-                      const Spacer(),
-                      Image.asset(
-                        AppImages.calendarIcon,
-                        width: 25,
-                      ),
-                      const SizedBox(width: 15),
-                    ],
-                  ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 50),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Choose the date',
+                  style: AppTextStylesBetCalculator.s16W500(),
                 ),
-              ),
-              const SizedBox(height: 12),
-              Builder(
-                builder: (context) => SportTypeDropDownButton(
-                  onChanged: (val) {
-                    selectedValue = val;
+                const SizedBox(height: 5),
+                InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  onTap: () async {
+                    final dateFrom = await showDateDialog(context, toDay);
+
+                    setState(() {
+                      toDay = dateFrom;
+                    });
                     context.read<GetVideoCubit>().getVideo(
                           DateFormat('yyyy-MM-dd').format(toDay),
                           selectedValue,
                         );
                   },
+                  child: Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color(0x26000000),
+                          blurRadius: 5,
+                          offset: Offset(0, 2),
+                          spreadRadius: 0,
+                        )
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        const SizedBox(width: 15),
+                        Text(
+                          DateFormat('dd/MM/yyyy').format(toDay),
+                          style: AppTextStylesBetCalculator.s16W500(),
+                        ),
+                        const Spacer(),
+                        Image.asset(
+                          AppImages.calendarIcon,
+                          width: 25,
+                        ),
+                        const SizedBox(width: 15),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              Expanded(
-                child: BlocBuilder<GetVideoCubit, GetVideoState>(
+                const SizedBox(height: 12),
+                Builder(
+                  builder: (context) => SportTypeDropDownButton(
+                    onChanged: (val) {
+                      selectedValue = val;
+                      context.read<GetVideoCubit>().getVideo(
+                            DateFormat('yyyy-MM-dd').format(toDay),
+                            selectedValue,
+                          );
+                    },
+                  ),
+                ),
+                BlocBuilder<GetVideoCubit, GetVideoState>(
                   builder: (context, state) {
                     return state.when(
                       loading: () => const Center(
@@ -108,10 +109,14 @@ class _SportsHighlightsPageState extends State<SportsHighlightsPage> {
                         child: Text(error),
                       ),
                       success: (model) => model.isEmpty
-                          ? const Center(
-                              child: Text('Video is Empty'),
+                          ? Center(
+                              child: LottieBuilder.asset(
+                                'assets/images/empty_image.json',
+                              ),
                             )
                           : ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
                               padding: const EdgeInsets.symmetric(vertical: 10),
                               itemCount: model.length,
                               itemBuilder: (context, index) =>
@@ -122,8 +127,8 @@ class _SportsHighlightsPageState extends State<SportsHighlightsPage> {
                     );
                   },
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

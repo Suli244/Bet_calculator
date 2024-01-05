@@ -49,7 +49,7 @@ class _ExpressCalculatorScreenState extends State<ExpressCalculatorScreen> {
         backgroundColor: Colors.white,
         bottomNavigationBar: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: CustomButtonBetCalculator(
               text: 'Calculate',
               color: AppColors.color144D87,
@@ -198,7 +198,10 @@ class _ExpressCalculatorScreenState extends State<ExpressCalculatorScreen> {
                               validator: emptyValidator,
                               controller: coefficientControllers[
                                   numbersList.indexOf(e)],
-                              keyboardType: TextInputType.text,
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                decimal: true,
+                              ),
                               labelText: 'Coefficient $e${type(e)} rate',
                             ),
                             const SizedBox(height: 22),

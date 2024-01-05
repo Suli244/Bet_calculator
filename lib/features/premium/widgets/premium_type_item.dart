@@ -23,7 +23,7 @@ class PremiumTypeItem extends StatelessWidget {
           ),
           const SizedBox(width: 13),
           Text(
-            'Unlimited use of the calculator',
+            text,
             style: AppTextStylesBetCalculator.s18W500(color: Colors.black),
           ),
         ],

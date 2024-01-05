@@ -1,6 +1,6 @@
-import 'package:apphud/apphud.dart';
 import 'package:bet_calculator/core/image/app_images.dart';
 import 'package:bet_calculator/core/premium/premium.dart';
+import 'package:bet_calculator/core/urls.dart';
 import 'package:bet_calculator/features/bottom_navigator/bottom_naviator_screen.dart';
 import 'package:bet_calculator/features/on_boarding/widget/page_view_item_bet_calculator.dart';
 import 'package:bet_calculator/features/premium/widgets/premium_type_item.dart';
@@ -8,6 +8,7 @@ import 'package:bet_calculator/theme/app_colors.dart';
 import 'package:bet_calculator/theme/app_text_styles.dart';
 import 'package:bet_calculator/widgets/custom_button.dart';
 import 'package:bet_calculator/widgets/restore_widgets.dart';
+import 'package:bet_calculator/widgets/web_view_bet_calculator.dart';
 import 'package:flutter/material.dart';
 
 class PremiumScreen extends StatefulWidget {
@@ -85,32 +86,40 @@ class _PremiumScreenState extends State<PremiumScreen> {
                     isLoading: owhevogerivgwecowcyw,
                     color: AppColors.color144D87,
                     onPress: () async {
-                      setState(() {
-                        owhevogerivgwecowcyw = true;
-                      });
-                      final apphudPaywalls = await Apphud.paywalls();
-
-                      await Apphud.purchase(
-                        product: apphudPaywalls?.paywalls.first.products?.first,
-                      ).whenComplete(
-                        () async {
-                          if (await Apphud.hasPremiumAccess() ||
-                              await Apphud.hasActiveSubscription()) {
-                            await PremiumBetCalculator.buyTradeFuncRestore(
-                                context);
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const BottomNavigatorScreen(),
-                              ),
-                              (route) => false,
-                            );
-                          }
-                        },
+                      await PremiumBetCalculator.setPremium();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const BottomNavigatorScreen(),
+                        ),
+                        (route) => false,
                       );
-                      setState(() {
-                        owhevogerivgwecowcyw = false;
-                      });
+                      // setState(() {
+                      //   owhevogerivgwecowcyw = true;
+                      // });
+                      // final apphudPaywalls = await Apphud.paywalls();
+
+                      // await Apphud.purchase(
+                      //   product: apphudPaywalls?.paywalls.first.products?.first,
+                      // ).whenComplete(
+                      //   () async {
+                      //     if (await Apphud.hasPremiumAccess() ||
+                      //         await Apphud.hasActiveSubscription()) {
+                      //       await PremiumBetCalculator.buyTradeFuncRestore(
+                      //           context);
+                      //       Navigator.pushAndRemoveUntil(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //           builder: (_) => const BottomNavigatorScreen(),
+                      //         ),
+                      //         (route) => false,
+                      //       );
+                      //     }
+                      //   },
+                      // );
+                      // setState(() {
+                      //   owhevogerivgwecowcyw = false;
+                      // });
                     },
                     text: 'Buy Premium for \$0,99',
                     textStyle:
@@ -118,11 +127,31 @@ class _PremiumScreenState extends State<PremiumScreen> {
                   ),
                   const SizedBox(height: 44),
                   RestoreButtons(
-                    onPressTermOfService: () {},
+                    onPressTermOfService: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const WebFFBetCalculator(
+                            title: 'Term of use',
+                            url: DocFFBetCalculator.tUse,
+                          ),
+                        ),
+                      );
+                    },
                     onPressRestore: () async {
                       await PremiumBetCalculator.buyTradeFuncRestore(context);
                     },
-                    onPressPrivacyPolicy: () {},
+                    onPressPrivacyPolicy: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const WebFFBetCalculator(
+                            title: 'Privacy Policy',
+                            url: DocFFBetCalculator.pP,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

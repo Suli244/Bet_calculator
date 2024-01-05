@@ -12,6 +12,7 @@ class AppImages {
   static const String calendarIcon = 'assets/images/calendar_icon.png';  
   static const String checkIcon = 'assets/images/check_icon.png';  
   static const String contuctIcon = 'assets/images/contuct_icon.png';  
+  static const String emptyImage = 'assets/images/empty_image.json';  
   static const String groupIcon = 'assets/images/group_icon.png';  
   static const String historyIcon = 'assets/images/history_icon.png';  
   static const String logo = 'assets/images/logo.png';  

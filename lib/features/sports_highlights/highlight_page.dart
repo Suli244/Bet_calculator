@@ -15,8 +15,10 @@ class SportsHighlightsDateilPage extends StatelessWidget {
         title: 'Highlight',
         titleTextStyle: AppTextStylesBetCalculator.s20W600(),
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          physics: const ClampingScrollPhysics(),
           children: [
             const SizedBox(height: 25),
             YoutubePlayeR(

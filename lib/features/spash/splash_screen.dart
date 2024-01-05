@@ -24,6 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
           builder: (context) => const OnBoardingScreen(),
         ),
       );
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 8));
       try {
         final InAppReview inAppReview = InAppReview.instance;
 

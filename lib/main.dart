@@ -32,6 +32,11 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'First Method',
           home: child,
+          theme: ThemeData.light().copyWith(
+            splashColor: Colors.transparent,
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
+          ),
         );
       },
       child: const SplashScreen(),

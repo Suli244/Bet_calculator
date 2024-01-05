@@ -18,7 +18,6 @@ Future<DateTime> showDateDialog(
       insetPadding: EdgeInsets.zero,
       content: SizedBox(
         width: context.width,
-        height: context.height / 2.15,
         child: TableCalendar(
           daysOfWeekVisible: false,
           headerStyle: HeaderStyle(
