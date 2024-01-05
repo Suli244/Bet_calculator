@@ -20,8 +20,7 @@ class PremiumBetCalculator {
     final hasPremiumAccess = await Apphud.hasPremiumAccess();
     final hasActiveSubscription = await Apphud.hasActiveSubscription();
     if (hasPremiumAccess || hasActiveSubscription) {
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setBool("kaergvilagviargevpaegr8oyeargy", true);
+      await setPremium();
       showDialog(
         context: context,
         builder: (BuildContext context) => CupertinoAlertDialog(

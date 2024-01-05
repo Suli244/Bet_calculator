@@ -30,26 +30,25 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  smooth_page_indicator: ^1.1.0
+  apphud: ^2.2.6
   flutter_screenutil: ^5.9.0
-  share_plus: ^7.2.1
   shared_preferences: ^2.0.15
   webview_flutter: ^4.4.2
-  table_calendar: ^3.0.9
+  smooth_page_indicator: ^1.1.0
   intl: ^0.18.0
-  youtube_player_flutter: ^8.1.2
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
   freezed_annotation: ^2.1.0
   flutter_bloc: ^8.1.1
   freezed: ^2.1.1
+  in_app_review: ^2.0.6
+  share_plus: ^7.2.1
+  table_calendar: ^3.0.9
+  youtube_player_flutter: ^8.1.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
   dropdown_button2: ^2.3.9
   dio: ^5.4.0
   lottie: ^2.7.0
-  apphud: ^2.2.6
-  bloc: ^8.1.2
   flutter_staggered_grid_view: ^0.6.2
-  in_app_review: ^2.0.6
 
 
   

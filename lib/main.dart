@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'First Method',
+          title: 'Bet Calculator',
           home: child,
           theme: ThemeData.light().copyWith(
             splashColor: Colors.transparent,
