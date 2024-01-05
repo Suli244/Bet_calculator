@@ -11,7 +11,7 @@ class ExpressHiveModel extends HiveObject {
   @HiveField(2)
   String number;
   @HiveField(3)
-  List<int> coefficients;
+  List<String> coefficients;
   @HiveField(4)
   DateTime date;
   ExpressHiveModel({

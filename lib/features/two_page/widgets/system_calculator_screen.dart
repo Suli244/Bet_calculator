@@ -77,8 +77,8 @@ class _SystemCalculatorScreenState extends State<SystemCalculatorScreen> {
                         stakeAmount: stakeAmount.toString(),
                         from: number.toString(),
                         coefficients: coefficientControllers
-                            .map<int>(
-                              (e) => int.parse(e.text),
+                            .map<String>(
+                              (e) => e.text,
                             )
                             .toList(),
                         date: DateTime.now(),

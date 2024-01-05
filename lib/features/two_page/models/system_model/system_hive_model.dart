@@ -13,7 +13,7 @@ class SystemHiveModel extends HiveObject {
   @HiveField(3)
   String systemType;
   @HiveField(4)
-  List<int> coefficients;
+  List<String> coefficients;
   @HiveField(5)
   DateTime date;
   SystemHiveModel({

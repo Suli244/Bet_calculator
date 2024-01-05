@@ -77,8 +77,8 @@ class _ExpressCalculatorScreenState extends State<ExpressCalculatorScreen> {
                         stakeAmount: stakeAmount.toString(),
                         number: number.toString(),
                         coefficients: coefficientControllers
-                            .map<int>(
-                              (e) => int.parse(e.text),
+                            .map<String>(
+                              (e) => e.text,
                             )
                             .toList(),
                         date: DateTime.now(),

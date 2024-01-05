@@ -20,7 +20,7 @@ class ExpressHiveModelAdapter extends TypeAdapter<ExpressHiveModel> {
       result: fields[0] as String,
       stakeAmount: fields[1] as String,
       number: fields[2] as String,
-      coefficients: (fields[3] as List).cast<int>(),
+      coefficients: (fields[3] as List).cast<String>(),
       date: fields[4] as DateTime,
     );
   }

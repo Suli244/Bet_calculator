@@ -42,48 +42,50 @@ class _SportsHighlightsPageState extends State<SportsHighlightsPage> {
                   style: AppTextStylesBetCalculator.s16W500(),
                 ),
                 const SizedBox(height: 5),
-                InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () async {
-                    final dateFrom = await showDateDialog(context, toDay);
+                Builder(
+                  builder: (context) => InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () async {
+                      final dateFrom = await showDateDialog(context, toDay);
 
-                    setState(() {
-                      toDay = dateFrom;
-                    });
-                    context.read<GetVideoCubit>().getVideo(
-                          DateFormat('yyyy-MM-dd').format(toDay),
-                          selectedValue,
-                        );
-                  },
-                  child: Container(
-                    height: 50,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color(0x26000000),
-                          blurRadius: 5,
-                          offset: Offset(0, 2),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        const SizedBox(width: 15),
-                        Text(
-                          DateFormat('dd/MM/yyyy').format(toDay),
-                          style: AppTextStylesBetCalculator.s16W500(),
-                        ),
-                        const Spacer(),
-                        Image.asset(
-                          AppImages.calendarIcon,
-                          width: 25,
-                        ),
-                        const SizedBox(width: 15),
-                      ],
+                      setState(() {
+                        toDay = dateFrom;
+                      });
+                      context.read<GetVideoCubit>().getVideo(
+                            DateFormat('yyyy-MM-dd').format(toDay),
+                            selectedValue,
+                          );
+                    },
+                    child: Container(
+                      height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x26000000),
+                            blurRadius: 5,
+                            offset: Offset(0, 2),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 15),
+                          Text(
+                            DateFormat('dd/MM/yyyy').format(toDay),
+                            style: AppTextStylesBetCalculator.s16W500(),
+                          ),
+                          const Spacer(),
+                          Image.asset(
+                            AppImages.calendarIcon,
+                            width: 25,
+                          ),
+                          const SizedBox(width: 15),
+                        ],
+                      ),
                     ),
                   ),
                 ),

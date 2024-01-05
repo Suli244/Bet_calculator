@@ -21,7 +21,7 @@ class SystemHiveModelAdapter extends TypeAdapter<SystemHiveModel> {
       stakeAmount: fields[1] as String,
       from: fields[2] as String,
       systemType: fields[3] as String,
-      coefficients: (fields[4] as List).cast<int>(),
+      coefficients: (fields[4] as List).cast<String>(),
       date: fields[5] as DateTime,
     );
   }
