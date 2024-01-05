@@ -152,34 +152,6 @@ class _PremiumScreenState extends State<PremiumScreen> {
           ),
         ),
       ],
-    )
-        // PageViewItem(
-        //   onTapX: () {
-        //     Navigator.pushAndRemoveUntil(
-        //       context,
-        //       MaterialPageRoute(
-        //         builder: (context) => const BottomNavigatorScreen(),
-        //       ),
-        //       (route) => false,
-        //     );
-        //   },
-        //   isSmoothPageIndicator: false,
-        //   isX: true,
-        //   title: 'Strategies',
-        //   titleTwo: 'Get access to all features\n with Premium Version',
-        //   titleNext: 'Buy Premium for \$0,99',
-        //   image: AppImages.premium,
-        //   onPressNext: () {
-        //     Navigator.pushAndRemoveUntil(
-        //       context,
-        //       MaterialPageRoute(
-        //         builder: (context) => const BottomNavigatorScreen(),
-        //       ),
-        //       (route) => false,
-        //     );
-        //   },
-        //   textStyleNext: AppTextStylesBetCalculator.s20W600(color: Colors.white),
-        // ),
-        );
+    ));
   }
 }

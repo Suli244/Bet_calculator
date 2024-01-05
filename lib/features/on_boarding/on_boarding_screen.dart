@@ -1,6 +1,7 @@
 import 'package:bet_calculator/core/image/app_images.dart';
 import 'package:bet_calculator/core/premium/first_open.dart';
 import 'package:bet_calculator/core/premium/premium.dart';
+import 'package:bet_calculator/core/urls.dart';
 import 'package:bet_calculator/features/bottom_navigator/bottom_naviator_screen.dart';
 import 'package:bet_calculator/features/on_boarding/widget/page_view_item_bet_calculator.dart';
 import 'package:bet_calculator/features/premium/premium_screen.dart';
@@ -8,6 +9,7 @@ import 'package:bet_calculator/theme/app_colors.dart';
 import 'package:bet_calculator/theme/app_text_styles.dart';
 import 'package:bet_calculator/widgets/custom_button.dart';
 import 'package:bet_calculator/widgets/restore_widgets.dart';
+import 'package:bet_calculator/widgets/web_view_bet_calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -109,9 +111,31 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ),
                     const SizedBox(height: 22),
                     RestoreButtons(
-                      onPressTermOfService: () {},
-                      onPressRestore: () {},
-                      onPressPrivacyPolicy: () {},
+                      onPressTermOfService: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const WebFFBetCalculator(
+                              title: 'Term of use',
+                              url: DocFFBetCalculator.tUse,
+                            ),
+                          ),
+                        );
+                      },
+                      onPressRestore: () async {
+                        await PremiumBetCalculator.buyTradeFuncRestore(context);
+                      },
+                      onPressPrivacyPolicy: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const WebFFBetCalculator(
+                              title: 'Privacy Policy',
+                              url: DocFFBetCalculator.pP,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
