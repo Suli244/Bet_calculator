@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:apphud/apphud.dart';
 import 'package:bet_calculator/core/image/app_images.dart';
 import 'package:bet_calculator/core/premium/premium.dart';
@@ -91,7 +93,6 @@ class _PremiumScreenState extends State<PremiumScreen> {
                         owhevogerivgwecowcyw = true;
                       });
                       final apphudPaywalls = await Apphud.paywalls();
-
                       await Apphud.purchase(
                         product: apphudPaywalls?.paywalls.first.products?.first,
                       ).whenComplete(
